@@ -73,5 +73,10 @@ justify-content: center;
     background-color: white;
 }
 `
+export const Column = styled.div`
+width: 25vw;
+display: flex;
+flex-direction: column;
+`
 
 

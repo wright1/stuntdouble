@@ -3,6 +3,7 @@ import Header from './components/header';
 import ImageCard from './components/imageCard';
 import Blurb from './components/blurb';
 import {GlobalStyle} from './styles/globalstyle';
+import {Column} from './styles/globalstyle'
 import {Button} from './styles/globalstyle';
 import man2 from './images/man2.jpg';
 import man3 from './images/man3.jpg';
@@ -42,8 +43,10 @@ function App() {
   
       {width ? null :
       (<>
+      <Column>
       <Button>Hired</Button>
       <Button>Fired</Button>
+      </Column>
       <Blurb />
       </>
       )
