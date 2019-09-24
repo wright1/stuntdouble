@@ -29,7 +29,7 @@ transition: 0.5s all ease-out;
 
  &:hover {
     
-    background-color: #10BC10;    
+    background-color: #CBD0F6;    
  }
 
  &:active {
