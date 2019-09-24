@@ -40,7 +40,7 @@ function App() {
        })
      }
     
-  
+  {/* Buttons are rendered conditionally */}
       {width ? null :
       (<>
       <Column>

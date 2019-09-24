@@ -34,9 +34,9 @@ const ImageCard = ({src}) => {
         let presentPoint = Math.round(e.targetTouches[0].clientX);
         let swipeDirection = presentPoint - startingPoint;
          
-      
+      //moving of the image left/right
         cardRef.current.style.transform = `translateX(${swipeDirection}px)`;
-        console.log(cardRef)
+      
         //attaching the apropriate word
         if (swipeDirection < -20){
           cardRef.current.childNodes[1].innerHTML = 'DISLIKE';
