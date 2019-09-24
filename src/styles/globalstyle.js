@@ -61,9 +61,16 @@ justify-content: center;
         object-fit: cover;
         box-shadow: 11px 8px 5px 0px rgba(217,228,236,1);
     }
-    >span{
-        font-family: 'Oswald', sans-serif;
-    }
+    
+}
+>span{
+    display: none:
+    width: 30vw;
+    height: 8vh;
+    right-margin: 10vw;
+    font-family:'Special Elite', cursive;
+    font-size: 3em;
+    background-color: white;
 }
 `
 

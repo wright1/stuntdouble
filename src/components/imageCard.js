@@ -1,45 +1,95 @@
-import React from 'react';
-import styled from 'styled-components';
-import {Wrapper} from '../styles/globalstyle'
+import React, {useRef} from 'react';
+import {Wrapper} from '../styles/globalstyle';
 
-// const Wrapper = styled.section`
-// width: 30vw;
-// height: 55vh;
-// display: flex;
-// margin-left: 3em;
-// margin-top: 5em;
-// position: absolute;
-// left:auto;
-// right: auto;
-// align-items: center;
-// justify-content: center;
- 
-// >div{
-//     width: 60vw;
-//     height: 55vh;
-    
-//     >img{
-        
-//         max-height: 100%;
-//         max-height: 100%;
-//         border-radius: 5px;
-//         object-fit: cover;
-//         box-shadow: 11px 8px 5px 0px rgba(217,228,236,1);
-//     }
-//     >span{
-//         font-family: 'Oswald', sans-serif;
-//     }
-// }
-// `
+
+
 
 const ImageCard = ({src}) => {
+
+    //varibles created
+    let startingPoint = useRef(0);
+
+
+    //ref created to allow me to access DOM node of component
+    const cardRef = React.createRef();
+    const threshold = window.innerWidth / 3;
+
+//--------------------------------Swipe Functions---------------------------------------
+
+    //first function to run when user touches screen
+    const firstTouchPoint = (e) =>{
+
+        let touch = e.targetTouches[0];
+        let touchpoint = Math.round(touch.clientX);
+        
+      
+        startingPoint = touchpoint;
+        window.addEventListener('touchmove', swipe );
+      
+      };
+
+      //second function runs as user is swiping screen
+      const swipe = (e) => {
+
+        let presentPoint = Math.round(e.targetTouches[0].clientX);
+        let swipeDirection = presentPoint - startingPoint;
+         
+      
+        cardRef.current.style.transform = `translateX(${swipeDirection}px)`;
+        console.log(cardRef)
+        //attaching the apropriate word
+        if (swipeDirection < -20){
+          cardRef.current.childNodes[1].innerHTML = 'DISLIKE';
+          
+        }else if (swipeDirection > 20){
+    
+          cardRef.current.childNodes[1].innerHTML = 'LIKED';
+        } else {
+      
+          cardRef.current.childNodes[1].innerHTML = ''
+      
+        }
+        window.addEventListener('touchend', end)  
+  
+
+     }
+
+//last function runs as users finger leaves the screen
+const end = (e) => {
+  
+    window.removeEventListener('touchmove', swipe);
+      
+    const endpoint = e.changedTouches[e.changedTouches.length-1].pageX
+
+
+    if(endpoint < startingPoint && endpoint < threshold){
+       
+        cardRef.current.remove()
+      
+      }
+       
+      if(endpoint > startingPoint && endpoint > (window.innerWidth/2)+threshold){
+      
+        cardRef.current.remove()
+        
+       }
+       
+ }
+//----------------------------------------------Swipe functions end---------------------
+
+
     return(
-        <Wrapper>
+        <>
+        <Wrapper ref={ cardRef } >
         <div>
-            <img src={ src } />
-        </div>
+            <img src={ src }
+        
+            onTouchStart={(e) => firstTouchPoint(e) }
+             />
+        </div> 
         <span></span>
         </Wrapper>
+        </>
     )
 }
 
