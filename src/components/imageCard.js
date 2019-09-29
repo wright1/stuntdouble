@@ -4,12 +4,13 @@ import {Wrapper} from '../styles/globalstyle';
 
 
 
+
 const ImageCard = ({src}) => {
+
 
     //varibles created
     let startingPoint = useRef(0);
-
-
+     
     //ref created to allow me to access DOM node of component
     const cardRef = React.createRef();
     const threshold = window.innerWidth / 3;
@@ -64,14 +65,14 @@ const end = (e) => {
 
     if(endpoint < startingPoint && endpoint < threshold){
        
-        cardRef.current.remove()
-      
+        cardRef.current.remove();
+          
       }
        
       if(endpoint > startingPoint && endpoint > (window.innerWidth/2)+threshold){
-      
-        cardRef.current.remove()
-        
+
+        cardRef.current.remove();
+            
        }
        
  }
@@ -83,7 +84,7 @@ const end = (e) => {
         <Wrapper ref={ cardRef } >
         <div>
             <img src={ src }
-        
+            alt='stuntperson'
             onTouchStart={(e) => firstTouchPoint(e) }
              />
         </div> 

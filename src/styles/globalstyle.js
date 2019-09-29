@@ -79,4 +79,12 @@ display: flex;
 flex-direction: column;
 `
 
+export const End = styled.span`
+position: absolute;
+left: 30vw;
+top: 45vh;
+font-family: 'Special Elite', cursive;
+font-size: 3em;
+`
+
 

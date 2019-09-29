@@ -5,6 +5,7 @@ import Blurb from './components/blurb';
 import {GlobalStyle} from './styles/globalstyle';
 import {Column} from './styles/globalstyle'
 import {Button} from './styles/globalstyle';
+import {End} from './styles/globalstyle';
 import man2 from './images/man2.jpg';
 import man3 from './images/man3.jpg';
 import man5 from './images/man5.jpg';
@@ -30,7 +31,7 @@ function App() {
       <Header />
     
 
-
+     <End>END</End>
      {
        cards.map((card, i) => {
          return <ImageCard
