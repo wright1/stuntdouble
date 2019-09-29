@@ -81,7 +81,7 @@ flex-direction: column;
 
 export const End = styled.span`
 position: absolute;
-left: 30vw;
+left: 20vw;
 top: 45vh;
 font-family: 'Special Elite', cursive;
 font-size: 3em;

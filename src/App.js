@@ -19,18 +19,12 @@ import man8 from './images/man8.jpg';
 
 function App() {
 
-  const [cards , setCards] = useState([ man2, man3, man5, man6, man7, man8]);
-  
-
-
-  const width = window.innerWidth < 450 ;
-
+  const [cards, setCards] = useState([man2, man3, man5, man6, man7, man8]);
+  const width = window.innerWidth < 450;
   return (
     <>
     <GlobalStyle />
       <Header />
-    
-
      <End>END</End>
      {
        cards.map((card, i) => {
@@ -39,8 +33,7 @@ function App() {
                 key={ 'item'+ i}
                 />
        })
-     }
-    
+     }  
   {/* Buttons are rendered conditionally */}
       {width ? null :
       (<>
@@ -51,9 +44,7 @@ function App() {
       <Blurb />
       </>
       )
-      }
-
-  
+      };  
     </>
     
   );
