@@ -7,3 +7,7 @@ You have a group of stunt double canidates, you choose to either 'like' or 'disl
 
 ![screenshot](https://user-images.githubusercontent.com/20236080/68892844-c216b180-071b-11ea-8552-0e969f137bb0.png)
 
+# TECH
+#### Create React App
+#### Styled Components
+
